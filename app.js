@@ -18,6 +18,9 @@ mongoose.connect(process.env.MONGO_URL)
         process.exit(1);
 })
 
+app.get("/",(req,res)=>{
+    res.status(200).json("server is running");
+})
 app.post("/signup",async (req,res)=>{
     try{
         const {email,password}=req.body;

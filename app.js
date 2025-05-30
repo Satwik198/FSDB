@@ -11,7 +11,7 @@ const app=express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
-mongoose.connect("mongodb://localhost:27017/user")
+mongoose.connect(process.env.MONGO_URL)
 .then(()=>{console.log("connected to mongodb")})
 .catch((err)=>{
     console.error("❌ MongoDB Connection Failed:", err);

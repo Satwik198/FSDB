@@ -57,6 +57,4 @@ app.post("/login",async(req,res)=>{
         return res.status(500).json("internal server error");
     }
 })
-app.listen(5000,()=>{
-    console.log("runnng on http://localhost:5000");
-})
+module.exports = app;

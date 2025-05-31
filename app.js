@@ -11,7 +11,7 @@ const app=express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb://localhost:27017/user"||process.env.MONGO_URL)
 .then(()=>{console.log("connected to mongodb")})
 .catch((err)=>{
     console.error("❌ MongoDB Connection Failed:", err);
@@ -57,4 +57,7 @@ app.post("/login",async(req,res)=>{
         return res.status(500).json("internal server error");
     }
 })
-module.exports = app;
+app.listen(5000,()=>{
+    console.log("server is running on port http://localhost:5000");
+});
+// module.exports = app;
